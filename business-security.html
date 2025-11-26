@@ -3,76 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Fish — Курс по бизнес-защите</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Здесь используются те же стили, что и в index.html */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ccecff;
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            background-color: #79b7b7;
-            color: #ffffff;
-            padding: 10px 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .branding { display: flex; align-items: center; }
-        .logo { width: 50px; height: 50px; object-fit: contain; margin-right: 10px; }
-        .site-name { font-size: 1.5rem; font-weight: bold; }
-        nav { display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
-        nav a:hover { color: #ccc; }
-        main {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-        }
-        h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        p { font-size: 1.2rem; line-height: 1.6; }
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #79b7b7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover { background-color: #6baaa0; }
-        footer { margin-top: 20px; font-size: 1.1rem; color: #666; text-align: center; }
-        small { display: block; font-size: inherit; line-height: 1.5; }
-    </style>
+    <title>Защита Предприятия от Кибератаки</title>
+    <link rel="stylesheet" href="style2.css">
+    <!-- Подключаем иконки Font Awesome для стиля -->
+    <link rel="stylesheet" href="cdnjs.cloudflare.com">
 </head>
 <body>
-    <header>
-        <div class="branding">
-            <img class="logo" src="logo.png" alt="Логотип Stop Fish">
-            <span class="site-name">Stop Fish</span>
-        </div>
-        <nav>
-            <a href="#courses">Курсы</a>
-            <a href="#about">О проекте</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Бизнес-защита</h1>
-        <p>Курс посвящен выявлению и предотвращению атак фишинга. Узнайте, как распознать поддельные письма и веб-сайты, а также способы защиты ваших данных.</p>
-        <button onclick="history.back()">Назад</button>
-    </main>
+    <div class="game-container" id="intro-screen">
+        <header>
+            <h1><i class="fas fa-user-shield"></i> Защита Предприятия</h1>
+            <p>Симулятор: Реагирование на инциденты безопасности</p>
+        </header>
+        <main>
+            <div class="intro-text">
+                <p>Ваша цель: защитить сервер данных от обнаруженной угрозы. Используйте доступные инструменты мониторинга и защиты.</p>
+                <p>Каждое действие влияет на уровень безопасности. Время ограничено.</p>
+            </div>
+            <div class="controls">
+                <button id="startButton">Начать защиту <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </main>
+        <footer>
+            <p>© 2025 Security Game</p>
+        </footer>
+    </div>
 
-    <footer>
-        <small>© Stop Fish | Ваш проводник в мире цифровой безопасности</small>
-    </footer>
+    <!-- КОНТЕЙНЕР ЭТАПА 1 -->
+    <div class="game-container hidden" id="stage-1-container">
+        <header>
+            <span class="stage-info">Этап #1. Реагирование</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-1">60</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-1-options">
+            <div class="threat-summary" id="stage-1-threat-summary"></div>
+            <div class="option" data-action="monitor">
+                <i class="fas fa-magnifying-glass-chart"></i>
+                <span>Мониторинг сетевого трафика</span>
+            </div>
+            <div class="option" data-action="patch">
+                 <i class="fas fa-wrench"></i>
+                <span>Установка критических патчей</span>
+            </div>
+             <div class="option" data-action="isolate">
+                 <i class="fas fa-plug-circle-xmark"></i>
+                <span>Изолировать зараженный хост</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 2 -->
+    <div class="game-container hidden" id="stage-2-container">
+         <header>
+            <span class="stage-info">Этап #2. Нейтрализация</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-2">45</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-2-options">
+             <div class="threat-summary" id="stage-2-threat-summary"></div>
+            <div class="option" data-action="block-ip">
+                <i class="fas fa-ban"></i>
+                <span>Блокировать IP-адрес атакующего</span>
+            </div>
+            <div class="option" data-action="2fa">
+                 <i class="fas fa-lock"></i>
+                <span>Включить 2FA на всех учетках</span>
+            </div>
+             <div class="option" data-action="honeypot">
+                 <i class="fas fa-spider"></i>
+                <span>Развернуть honeypot (ловушку)</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 3 -->
+    <div class="game-container hidden" id="stage-3-container">
+        <header>
+            <span class="stage-info">Этап #3. Локализация</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-3">30</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-3-options">
+            <div class="threat-summary" id="stage-3-threat-summary"></div>
+            <div class="option" data-action="reset-pass">
+                <i class="fas fa-key"></i>
+                <span>Принудительный сброс паролей</span>
+            </div>
+            <div class="option" data-action="review-logs">
+                <i class="fas fa-file-invoice"></i>
+                <span>Анализ логов на перемещение</span>
+            </div>
+            <div class="option" data-action="edr-deploy">
+                <i class="fas fa-desktop"></i>
+                <span>Развертывание EDR-решения</span>
+            </div>
+        </main>
+    </div>
+    
+    <!-- КОНТЕЙНЕР ЭТАПА 4 -->
+    <div class="game-container hidden" id="stage-4-container">
+        <header>
+            <span class="stage-info">Этап #4. Изоляция и Восстановление</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-4">45</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-4-options">
+            <div class="threat-summary" id="stage-4-threat-summary"></div>
+            <div class="option" data-action="full-isolate">
+                <i class="fas fa-hospital-user"></i>
+                <span>Полностью изолировать скомпром. сегмент</span>
+            </div>
+            <div class="option" data-action="backup">
+                <i class="fas fa-cloud-arrow-up"></i>
+                <span>Восстановить данные из бэкапа</span>
+            </div>
+            <div class="option" data-action="comm-inc">
+                <i class="fas fa-bullhorn"></i>
+                <span>Коммуникация о инциденте</span>
+            </div>
+        </main>
+    </div>
+    
+    <!-- КОНТЕЙНЕР ЭТАПА 5 -->
+    <div class="game-container hidden" id="stage-5-container">
+        <header>
+            <span class="stage-info">Этап #5. Искоренение и Отчетность</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-5">60</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-5-options">
+            <div class="threat-summary" id="stage-5-threat-summary"></div>
+            <div class="option" data-action="forensics">
+                <i class="fas fa-microscope"></i>
+                <span>Криминалистический анализ (Forensics)</span>
+            </div>
+            <div class="option" data-action="lesson-learned">
+                <i class="fas fa-school"></i>
+                <span>Анализ извлеченных уроков</span>
+            </div>
+            <div class="option" data-action="final-report">
+                <i class="fas fa-file-signature"></i>
+                <span>Подготовка финального отчета</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 6 -->
+    <div class="game-container hidden" id="stage-6-container">
+        <header>
+            <span class="stage-info">Этап #6. Восстановление (Recovery)</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-6">120</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-6-options">
+            <div class="threat-summary" id="stage-6-threat-summary"></div>
+            <div class="option" data-action="system-rebuild">
+                <i class="fas fa-screwdriver-wrench"></i>
+                <span>Пересборка затронутых систем</span>
+            </div>
+            <div class="option" data-action="restore-services">
+                <i class="fas fa-cloud-sun-rain"></i>
+                <span>Восстановление критических сервисов</span>
+            </div>
+            <div class="option" data-action="validate-integrity">
+                <i class="fas fa-check-double"></i>
+                <span>Проверка целостности данных</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 7 -->
+    <div class="game-container hidden" id="stage-7-container">
+        <header>
+            <span class="stage-info">Этап #7. Усиление Защиты</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-7">90</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-7-options">
+            <div class="threat-summary" id="stage-7-threat-summary"></div>
+            <div class="option" data-action="waf-deploy">
+                <i class="fas fa-shield-virus"></i>
+                <span>Развертывание WAF (Web App Firewall)</span>
+            </div>
+            <div class="option" data-action="pentest">
+                <i class="fas fa-user-secret"></i>
+                <span>Запуск внепланового пентеста</span>
+            </div>
+            <div class="option" data-action="awareness-training">
+                <i class="fas fa-people-arrows"></i>
+                <span>Тренинг по киберграмотности для сотрудников</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 8 -->
+    <div class="game-container hidden" id="stage-8-container">
+        <header>
+            <span class="stage-info">Этап #8. Проактивный Мониторинг</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-8">120</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-8-options">
+            <div class="threat-summary" id="stage-8-threat-summary"></div>
+            <div class="option" data-action="threat-hunting">
+                <i class="fas fa-search-location"></i>
+                <span>Threat Hunting (поиск скрытых угроз)</span>
+            </div>
+            <div class="option" data-action="update-siem">
+                <i class="fas fa-chart-line"></i>
+                <span>Обновление правил SIEM/IDS</span>
+            </div>
+            <div class="option" data-action="vulnerability-scan">
+                <i class="fas fa-bug"></i>
+                <span>Регулярное сканирование уязвимостей</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 9 -->
+    <div class="game-container hidden" id="stage-9-container">
+        <header>
+            <span class="stage-info">Этап #9. Пересмотр Политик и Тренировки</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-9">90</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-9-options">
+            <div class="threat-summary" id="stage-9-threat-summary"></div>
+            <div class="option" data-action="policy-review">
+                <i class="fas fa-balance-scale"></i>
+                <span>Пересмотр политик доступа</span>
+            </div>
+            <div class="option" data-action="simulated-phishing">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Симуляция фишинга для сотрудников</span>
+            </div>
+            <div class="option" data-action="dr-test">
+                <i class="fas fa-house-medical-circle-exclamation"></i>
+                <span>Тестирование плана аварийного восстановления (DR)</span>
+            </div>
+        </main>
+    </div>
+    
+    <!-- КОНТЕЙНЕР ЭТАПА 10 -->
+    <div class="game-container hidden" id="stage-10-container">
+        <header>
+            <span class="stage-info">Этап #10. Соблюдение Нормативов (Compliance)</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-10">180</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-10-options">
+            <div class="threat-summary" id="stage-10-threat-summary"></div>
+            <div class="option" data-action="legal-review">
+                <i class="fas fa-gavel"></i>
+                <span>Юридический анализ инцидента</span>
+            </div>
+            <div class="option" data-action="regulator-notify">
+                <i class="fas fa-envelope-circle-check"></i>
+                <span>Уведомление регуляторов/партнеров</span>
+            </div>
+            <div class="option" data-action="audit-prepare">
+                <i class="fas fa-clipboard-check"></i>
+                <span>Подготовка к внешнему аудиту</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 11 -->
+    <div class="game-container hidden" id="stage-11-container">
+        <header>
+            <span class="stage-info">Этап #11. Долгосрочная Стратегия</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-11">120</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-11-options">
+            <div class="threat-summary" id="stage-11-threat-summary"></div>
+            <div class="option" data-action="budget-req">
+                <i class="fas fa-chart-pie"></i>
+                <span>Запрос бюджета на новые ИБ-решения</span>
+            </div>
+            <div class="option" data-action="roadmap-plan">
+                <i class="fas fa-road"></i>
+                <span>Планирование ИБ-дорожной карты на год</span>
+            </div>
+            <div class="option" data-action="hire-specialist">
+                <i class="fas fa-people-line"></i>
+                <span>Найм дополнительного специалиста в команду</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- КОНТЕЙНЕР ЭТАПА 12 (ФИНАЛ) -->
+    <div class="game-container hidden" id="stage-12-container">
+        <header>
+            <span class="stage-info">Этап #12. Финальная Оценка и Завершение</span>
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left-12">60</span>
+            </div>
+        </header>
+        <main class="stage-options" id="stage-12-options">
+            <div class="threat-summary" id="stage-12-threat-summary"></div>
+            <div class="option" data-action="final-score">
+                <i class="fas fa-award"></i>
+                <span>Посмотреть финальный результат игры</span>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="script2.js"></script>
 </body>
 </html>
+

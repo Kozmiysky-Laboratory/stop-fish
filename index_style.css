@@ -1,0 +1,263 @@
+/* Переменные для цветов, чтобы было легче управлять темой */
+:root {
+    --bg-dark: #1e1e2d;
+    --bg-card: #2c2c3e;
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent-orange: #ff9841;
+    --card-pink: #ff69b4;
+    --card-orange-soft: #ffa500;
+    --card-blue: #00bfff;
+    --card-purple: #9370db;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    max-width: 1280px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Увеличиваем расстояние между секциями */
+}
+
+/* --- HEADER AND NAVIGATION --- */
+header {
+    background-color: var(--bg-dark); /* Фон хедера соответствует общему фону */
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.branding { display: flex; align-items: center; }
+.site-name { 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    color: var(--accent-orange); /* Цвет бренда оранжевый */
+}
+
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    font-size: 1rem; 
+    transition: color 0.3s ease; 
+}
+nav a:hover { color: var(--text-light); }
+
+/* Кнопка "Начать обучение" в хедере */
+.cta-button {
+    background-color: var(--accent-orange);
+    color: var(--bg-dark) !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover { background-color: #ffb56b; }
+
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+    /* Градиентный фон для hero section, как на картинке */
+    background: linear-gradient(135deg, #1e1e2d 0%, #2c2c3e 100%);
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Подсветка ключевой фразы, как "Your Future" на макете */
+.hero-content h1 em {
+    color: var(--accent-orange);
+    font-style: normal;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: var(--bg-dark);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+}
+.main-cta-button:hover {
+    background-color: #ffb56b;
+}
+
+/* Статистика (50+, 1М+) */
+.statistics {
+    display: flex;
+    gap: 40px;
+}
+
+.stat-item span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    display: block;
+}
+
+.stat-item small {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* .hero-image-placeholder {
+    max-width: 45%;
+    height: 300px;
+    background-color: #3e3e55; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+} */
+
+/* Новые стили для изображения внутри placeholder */
+.hero-image-placeholder {
+    max-width: 300px; /* Уменьшаем максимальную ширину контейнера (можно настроить по желанию) */
+    width: 100%;
+    height: 300px; /* Задаем фиксированную высоту, равную ширине */
+    overflow: hidden; /* Обрезаем все, что выходит за пределы круга */
+}
+
+.hero-image-placeholder img {
+    width: 100%;       /* Растягиваем изображение на всю ширину контейнера */
+    height: 100%;      /* Растягиваем изображение на всю высоту контейнера */
+    display: block;    
+    border-radius: 50%; /* Делаем изображение идеально круглым */
+    object-fit: cover; /* Это гарантирует, что изображение покроет всю область без искажений и не будет растянуто */
+    object-position: center; /* Центрируем изображение внутри круга */
+}
+
+
+
+
+/* --- COURSE CARDS GRID --- */
+h2 {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.course-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.course-card {
+    background-color: var(--bg-card); /* Темный фон карточек */
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: left; /* Выравнивание текста по левому краю, как на макете */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.course-card:hover { 
+    transform: translateY(-5px); /* Легкий эффект поднятия */
+    border-color: var(--accent-orange);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.course-title { 
+    font-size: 1.4rem; 
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.course-description { 
+    font-size: 0.9rem; 
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Применение ярких цветов к первым 4 карточкам, как на макете, через data-атрибуты */
+.course-card[data-color="pink"] { background-color: var(--card-pink); color: var(--bg-dark); }
+.course-card[data-color="pink"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="orange"] { background-color: var(--card-orange-soft); color: var(--bg-dark); }
+.course-card[data-color="orange"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="blue"] { background-color: var(--card-blue); color: var(--bg-dark); }
+.course-card[data-color="blue"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="purple"] { background-color: var(--card-purple); color: var(--bg-dark); }
+.course-card[data-color="purple"] p { color: var(--bg-dark); opacity: 0.8; }
+
+
+/* --- FOOTER --- */
+footer { 
+    margin-top: 50px; 
+    padding: 20px;
+    font-size: 1rem; 
+    color: var(--text-muted); 
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #333;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    header { padding: 15px 20px; }
+    .hero-section { flex-direction: column; text-align: center; }
+    .hero-content, .hero-image-placeholder { max-width: 100%; }
+    .hero-image-placeholder { margin-top: 30px; }
+    .hero-content h1 { font-size: 2rem; }
+    .statistics { justify-content: center; }
+    nav a.cta-button { display: none; } /* Скрываем кнопку в хедере на мобильных */
+}
+
+@media (max-width: 600px) {
+    nav { gap: 15px; }
+    .hero-content p { font-size: 1rem; }
+    .main-cta-button { width: 100%; }
+}

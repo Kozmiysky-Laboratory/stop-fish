@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер Паролей</title>
+    <link rel="stylesheet" href="pass_style.css">
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body class="trainer-body">
+    <main>
+        <!-- Этот раздел был скопирован из предыдущего index.html -->
+        <section id="trainingSection" class="training-section">
+            <div class="container">
+                <!-- Кнопка "Назад" для возврата на главную страницу -->
+                <a href="index.html" class="back-link">← Вернуться назад</a>
+                <h3>Тренажер: Составление пароля</h3>
+                <div class="tips-container">
+                    <h4>Советы по составлению пароля:</h4>
+                    <ul>
+                        <li>Длина: минимум 12 символов.</li>
+                        <li>Используйте прописные и строчные буквы.</li>
+                        <li>Добавьте цифры и специальные символы (!@#$%).</li>
+                        <li>Не используйте личную информацию или словарные слова.</li>
+                    </ul>
+                </div>
+                <div class="password-input-area">
+                    <label for="passwordInput">Введите ваш пароль:</label>
+                    <input type="password" id="passwordInput" placeholder="Введите пароль здесь">
+                    <div class="strength-bar">
+                        <div id="strengthIndicator" class="strength-indicator"></div>
+                    </div>
+                    <p id="strengthText">Надежность: **Очень слабый**</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Stop Fish. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="pass_script.js"></script>
+</body>
+</html>

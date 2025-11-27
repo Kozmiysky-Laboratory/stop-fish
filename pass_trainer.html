@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер Паролей</title>
     <link rel="stylesheet" href="pass_style.css">
+    <!-- Добавляем Font Awesome для иконки глаза -->
+    <link rel="stylesheet" href="cdnjs.cloudflare.com">
     <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body class="trainer-body">
@@ -13,7 +15,7 @@
         <section id="trainingSection" class="training-section">
             <div class="container">
                 <!-- Кнопка "Назад" для возврата на главную страницу -->
-                <a href="index.html" class="back-link">← На главную</a>
+                <a href="index.html" class="back-link">← Вернуться назад</a>
                 <h3>Тренажер: Составление пароля</h3>
                 <div class="tips-container">
                     <h4>Советы по составлению пароля:</h4>
@@ -26,7 +28,14 @@
                 </div>
                 <div class="password-input-area">
                     <label for="passwordInput">Введите ваш пароль:</label>
-                    <input type="password" id="passwordInput" placeholder="Введите пароль здесь">
+                    
+                    <!-- НОВЫЙ КОНТЕЙНЕР ДЛЯ ПОЛЯ И ИКОНКИ -->
+                    <div class="password-input-container">
+                        <input type="password" id="passwordInput" placeholder="Введите пароль здесь">
+                        <!-- Иконка глаза. Класс fa-eye-slash означает "закрытый глаз" по умолчанию -->
+                        <i class="far fa-eye-slash" id="togglePassword"></i>
+                    </div>
+
                     <div class="strength-bar">
                         <div id="strengthIndicator" class="strength-indicator"></div>
                     </div>

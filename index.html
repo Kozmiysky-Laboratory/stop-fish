@@ -4,110 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop Fish — Защити себя от мошенников</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS здесь остался прежним */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ccecff;
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            background-color: #79b7b7;
-            color: #ffffff;
-            padding: 10px 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .branding { display: flex; align-items: center; }
-        .logo { width: 50px; height: 50px; object-fit: contain; margin-right: 10px; }
-        .site-name { font-size: 1.5rem; font-weight: bold; }
-        nav { display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
-        nav a:hover { color: #ccc; }
-        main {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-        .course-card {
-            background-color: #9cdbff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .course-card:hover { transform: scale(1.05); }
-        .course-title { font-size: 1.5rem; margin-bottom: 10px; }
-        .course-description { font-size: 1rem; color: #666; }
-        footer { margin-top: 20px; font-size: 1.1rem; color: #666; text-align: center; }
-        small { display: block; font-size: inherit; line-height: 1.5; }
-    </style>
+    <!-- Используем Inter, как и в оригинале -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    <!-- Подключаем новый файл стилей style.css -->
+    <link rel="stylesheet" href="index_style.css">
 </head>
 <body>
     <header>
         <div class="branding">
-            <img class="logo" src="logo.png" alt="Логотип Stop Fish">
+            <!-- Замените logo.png на ваш логотип -->
             <span class="site-name">Stop Fish</span>
         </div>
         <nav>
             <a href="#courses">Курсы</a>
             <a href="#about">О проекте</a>
+            <!-- Добавляем кнопку "Начать обучение", как на макете -->
+            <a href="#register" class="cta-button">Начать обучение</a>
         </nav>
     </header>
 
     <main>
-        <article class="course-card" data-link="phish.html"> 
-            <h2 class="course-title">Фишинг</h2>
-            <p class="course-description">Узнайте, как обезопасить себя от поддельных сайтов и писем.</p>
-        </article>
+        <!-- НОВЫЙ БЛОК: ГЕРОЙСКИЙ БАННЕР И СТАТИСТИКА -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Инвестируйте в знания и свою безопасность</h1>
+                <p>Благодаря нашей программе обучения предотвращению мошенничества, разработанной для широкой аудитории, вы сможете защитить себя и своих близких от финансовых угроз.</p>
+                <a href="#register" class="main-cta-button">Зарегистрироваться</a>
+                
+                <div class="statistics">
+                    <div class="stat-item">
+                        <span>50+</span>
+                        <small>Курсов</small>
+                    </div>
+                    <div class="stat-item">
+                        <span>10+</span>
+                        <small>Пользователей</small>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-placeholder">
+                <!-- Здесь можно разместить изображение или SVG-иллюстрацию в стиле макета -->
+                 <img src="index_logo.jpg" alt="Человек с книгами">
+                <p>Placeholder для изображения человека</p>
+            </div>
+        </section>
 
-        <article class="course-card" data-link="phone-scams.html">
-            <h2 class="course-title">Телефонные мошенники</h2>
-            <p class="course-description">Изучите методы защиты от звонков злоумышленников.</p>
-        </article>
+        <h2>Наши тренажеры</h2>
 
-        <article class="course-card" data-link="password-security.html">
-            <h2 class="course-title">Пароли</h2>
-            <p class="course-description">Создавайте надёжные пароли и управляйте ими эффективно.</p>
-        </article>
+        <!-- Сетка карточек курсов -->
+        <div class="course-grid">
+            <article class="course-card" data-link="phish.html" data-color="pink"> 
+                <h2 class="course-title">Фишинг</h2>
+                <p class="course-description">Узнайте, как обезопасить себя от поддельных сайтов и писем.</p>
+            </article>
 
-        <article class="course-card" data-link="child-protection.html">
-            <h2 class="course-title">Безопасность детей</h2>
-            <p class="course-description">Помощь родителям в обучении ребёнка безопасному поведению онлайн.</p>
-        </article>
+            <article class="course-card" data-link="phone-scams.html" data-color="orange">
+                <h2 class="course-title">Телефонные мошенники</h2>
+                <p class="course-description">Изучите методы защиты от звонков злоумышленников.</p>
+            </article>
 
-        <article class="course-card" data-link="senior-learning.html">
-            <h2 class="course-title">Старшее поколение</h2>
-            <p class="course-description">Специальные курсы для пожилых людей по борьбе с мошенниками.</p>
-        </article>
+            <article class="course-card" data-link="password-security.html" data-color="blue">
+                <h2 class="course-title">Пароли</h2>
+                <p class="course-description">Создавайте надёжные пароли и управляйте ими эффективно.</p>
+            </article>
 
-        <article class="course-card" data-link="business.html">
-            <h2 class="course-title">Бизнес-защита</h2>
-            <p class="course-description">Избегайте рисков и защищайте вашу компанию от угроз.</p>
-        </article>
+            <article class="course-card" data-link="child-protection.html" data-color="purple">
+                <h2 class="course-title">Безопасность детей</h2>
+                <p class="course-description">Помощь родителям в обучении ребёнка безопасному поведению онлайн.</p>
+            </article>
 
-        <article class="course-card" data-link="victim-assistance.html">
-            <h2 class="course-title">Помощь жертвам</h2>
-            <p class="course-description">Рекомендации и инструкции, если вы стали жертвой мошенника.</p>
-        </article>
+            <!-- Остальные карточки, при необходимости можно добавить data-color -->
+            <article class="course-card" data-link="senior-learning.html">
+                <h2 class="course-title">Старшее поколение</h2>
+                <p class="course-description">Специальные курсы для пожилых людей по борьбе с мошенниками.</p>
+            </article>
 
-        <article class="course-card" data-link="savings-protection.html">
-            <h2 class="course-title">Финансовая безопасность</h2>
-            <p class="course-description">Защитите ваши деньги и банковские счета от кражи и мошенничества.</p>
-        </article>
+            <article class="course-card" data-link="business.html">
+                <h2 class="course-title">Бизнес-защита</h2>
+                <p class="course-description">Избегайте рисков и защищайте вашу компанию от угроз.</p>
+            </article>
+
+            <article class="course-card" data-link="victim-assistance.html">
+                <h2 class="course-title">Помощь жертвам</h2>
+                <p class="course-description">Рекомендации и инструкции, если вы стали жертвой мошенника.</p>
+            </article>
+
+            <article class="course-card" data-link="savings-protection.html">
+                <h2 class="course-title">Финансовая безопасность</h2>
+                <p class="course-description">Защитите ваши деньги и банковские счета от кражи и мошенничества.</p>
+            </article>
+        </div>
     </main>
 
     <footer>
@@ -115,28 +101,16 @@
     </footer>
 
     <script>
-        // Скрипт для обработки кликов по карточкам
+        // Скрипт для обработки кликов по карточкам остался прежним
         document.querySelectorAll('.course-card').forEach(card => {
             card.addEventListener('click', () => {
-                // Извлекаем целевую страницу из атрибута data-link
                 let targetPage = card.dataset.link;
-                
-                // Проверяем наличие ссылки
                 if (!targetPage || !targetPage.includes(".html")) {
                     return alert("Данный раздел находится в разработке.");
                 }
-                
-                // Переход на целевую страницу
                 location.href = targetPage;
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-

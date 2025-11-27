@@ -160,3 +160,54 @@ footer {
     padding-top: 20px;
 }
 
+
+/* ... Ваш существующий CSS код выше остается без изменений ... */
+/* ... */
+.back-link {
+    color: #ff5722;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Удаляем отступ сверху для body в режиме тренажера, чтобы контент начинался сразу */
+.trainer-body main {
+    padding-top: 20px;
+}
+
+/* НОВЫЕ СТИЛИ ДЛЯ ИКОНКИ ГЛАЗА */
+
+/* Контейнер для поля ввода и иконки */
+.password-input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Стилизация самого поля ввода внутри контейнера */
+/* Переопределяем ширину и добавляем padding-right из ваших старых правил */
+.password-input-area input {
+    width: 100%;
+    max-width: 100%; /* Убрал фиксированный max-width, чтобы поле растягивалось на 100% контейнера */
+    padding: 12px;
+    padding-right: 40px; /* Делаем отступ справа, чтобы текст не наползал на иконку */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    color: #1a1a2e;
+    font-size: 1em;
+    box-sizing: border-box; /* Важно, чтобы padding не увеличивал общую ширину */
+}
+
+/* Позиционирование иконки "глаза" */
+#togglePassword {
+    position: absolute;
+    right: 10px; /* Отступ справа */
+    top: 50%; /* Смещаем вниз на половину высоты */
+    transform: translateY(-50%); /* Центрируем вертикально точно по середине */
+    cursor: pointer; /* Делаем курсор в виде руки при наведении */
+    color: #aaa;
+}
+
+

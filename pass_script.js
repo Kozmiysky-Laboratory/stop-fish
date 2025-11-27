@@ -5,15 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('passwordInput');
     const strengthIndicator = document.getElementById('strengthIndicator');
     const strengthText = document.getElementById('strengthText');
+    // НОВЫЙ ЭЛЕМЕНТ: Иконка глаза
+    const togglePassword = document.getElementById('togglePassword');
 
     // Проверяем, существуют ли нужные элементы на текущей странице, прежде чем добавлять слушатель событий
-    if (passwordInput && strengthIndicator && strengthText) {
+    // Теперь проверяем и наличие иконки togglePassword
+    if (passwordInput && strengthIndicator && strengthText && togglePassword) {
         // Обработка ввода пароля в реальном времени
         passwordInput.addEventListener('input', () => {
             const password = passwordInput.value;
             const strength = checkPasswordStrength(password);
             updateStrengthIndicator(strength);
         });
+
+        // НОВЫЙ КОД: Обработка клика по иконке глаза для показа/скрытия пароля
+        togglePassword.addEventListener('click', function () {
+            // Переключаем тип атрибута: если 'password', делаем 'text', иначе 'password'
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Переключаем класс иконки Font Awesome (открытый/закрытый глаз)
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
     } else {
         // Если это главная страница index.html, где тренажер сначала скрыт,
         // этот блок кода не будет выполняться, так как мы используем ссылку.

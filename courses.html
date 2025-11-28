@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет страницы курсов (Без сайдбара)</title>
+    <link rel="stylesheet" href="courses_style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="navbar">
+            <div class="logo">Stop Fish</div>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="coureses.html">Курсы</a>
+                <a href="#">О проекте</a>
+                <a href="#" class="btn-primary">Начать обучение</a>
+            </nav>
+        </header>
+
+        <!-- Main Layout (Content Only, no Sidebar) -->
+        <div class="main-layout">
+            <!-- Main Content Area takes full width -->
+            <main class="content-area">
+                <h1>Каталог курсов</h1>
+                
+                <div class="course-grid">
+                    <!-- Пример карточки курса (повторить 8 раз) -->
+                    <div class="card">
+                        <div class="card-image-placeholder">
+                            <span>C#</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Безопасность публичного Wi-Fi:</h3>
+                            <p>Риски использования общедоступных сетей</p>
+                            <div class="card-footer">
+                                <span>Прогресс: 24%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Повторите этот блок .card еще 7 раз для заполнения сетки -->
+                    <div class="card"><div class="card-image-placeholder"><span>Python</span></div><div class="card-content"><h3>Название курса 2</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>JS</span></div><div class="card-content"><h3>Название курса 3</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>SQL</span></div><div class="card-content"><h3>Название курса 4</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>React</span></div><div class="card-content"><h3>Название курса 5</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>Vue</span></div><div class="card-content"><h3>Название курса 6</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>HTML</span></div><div class="card-content"><h3>Название курса 7</h3><p>Описание курса.</p></div></div>
+                    <div class="card"><div class="card-image-placeholder"><span>CSS</span></div><div class="card-content"><h3>Название курса 8</h3><p>Описание курса.</p></div></div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,7 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: auto;
+    overflow: scroll;
 }
 
 /* Эффект фоновой сетки (имитация кибер-пространства) */

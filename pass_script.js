@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Функция оценки надежности пароля (ОБНОВЛЕННАЯ ВЕРСИЯ)
+    // Функция оценки надежности пароля (СБАЛАНСИРОВАННАЯ ВЕРСИЯ)
     function checkPasswordStrength(password) {
         let score = 0;
         if (!password) return 0;
@@ -34,41 +34,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasLowerCase = /[a-z]/.test(password);
         const hasDigit = /\d/.test(password);
         const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
-        // Убрали isLong как отдельный булевый флаг, теперь длина дает баллы динамически
 
-        // Баллы за наличие разных типов символов
-        if (hasUpperCase) score += 1; // Увеличили вес до 1 балла
+        // Даем баллы за каждый тип символа (по 1 баллу)
+        if (hasUpperCase) score += 1;
         if (hasLowerCase) score += 1;
         if (hasDigit) score += 1;
         if (hasSpecialChar) score += 1;
         
-        // Ужесточаем требования к длине:
-        if (password.length >= 10) score += 0.5; // Балл за 10+ символов (было 8+)
-        if (password.length >= 14) score += 1;   // Дополнительный балл за 14+ символов (было 16+)
-        if (password.length >= 18) score += 0.5; // Еще балл за очень длинный пароль
+        // Умеренно ужесточаем требования к длине:
+        if (password.length >= 10) score += 0.5; // +0.5 балла за 10+ символов
+        if (password.length >= 14) score += 0.5; // +0.5 балла за 14+ символов
+        if (password.length >= 18) score += 0;   // Убрал балл за 18+, чтобы макс. балл был 5
 
-        // Максимальный балл теперь может достигать 5 (1+1+1+1 + 0.5+1+0.5)
+        // Максимальный балл теперь ровно 5 (1+1+1+1 + 0.5 + 0.5)
 
         return score;
     }
 
-    // Функция обновления интерфейса (ТРЕБУЕТСЯ НЕБОЛЬШАЯ КОРРЕКТИРОВКА ПОРОГОВ)
+    // Функция обновления интерфейса (СКОРРЕКТИРОВАНЫ ПОРОГИ)
     function updateStrengthIndicator(strength) {
-        // Шкала осталась прежней (от 0 до 5), но теперь ее сложнее заполнить.
+        // Шкала от 0 до 5
         let width = (strength / 5) * 100;
         let color = '#ff0000';
         let text = 'Очень слабый';
 
-        // Корректируем пороги, чтобы они соответствовали новому распределению баллов
-        if (strength >= 2) { // Раньше было 1.5
+        // Пороги:
+        if (strength >= 2) { // Два типа символов ИЛИ один тип и длина 10+
             color = '#ff9800';
             text = 'Средний';
         }
-        if (strength >= 3.5) { // Раньше было 3
+        if (strength >= 3.5) { // Три типа символов И длина 10+, или 4 типа без длины
             color = '#4caf50';
             text = 'Надежный';
         }
-        if (strength >= 4.5) { // Раньше было 4.5
+        if (strength >= 4.5) { // Все 4 типа символов И длина 14+
             color = '#8bc34a';
             text = 'Очень надежный';
         }

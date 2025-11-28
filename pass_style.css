@@ -1,3 +1,4 @@
+/* Общие настройки */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #1a1a2e; /* Темный фон как на картинке */
@@ -13,12 +14,46 @@ body {
     padding: 0 20px;
 }
 
+/* Новая шапка (HEADER) */
 header {
-    background-color: #1a1a2e;
-    padding: 15px 0;
-    border-bottom: 1px solid #0f3460;
+    background-color: var(--bg-dark); /* Темный фон шапки */
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.branding { display: flex; align-items: center; }
+.site-name { 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    color: var(--accent-orange); /* Цвет бренда оранжевого оттенка */
+}
+
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    font-size: 1rem; 
+    transition: color 0.3s ease; 
+}
+nav a:hover { color: var(--text-light); }
+
+/* Кнопка "Начать обучение" в хедере */
+.cta-button {
+    background-color: var(--accent-orange);
+    color: var(--bg-dark) !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover { background-color: #ffb56b; }
+
+/* Преобразование старого header в новую версию */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -53,6 +88,7 @@ nav a {
     background-color: #e64a19;
 }
 
+/* Остальные секции оставляем такими же */
 .hero-section {
     padding: 80px 0;
     background-color: #16213e;
@@ -160,36 +196,17 @@ footer {
     padding-top: 20px;
 }
 
-
-/* ... Ваш существующий CSS код выше остается без изменений ... */
-/* ... */
-.back-link {
-    color: #ff5722;
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-}
-
-/* Удаляем отступ сверху для body в режиме тренажера, чтобы контент начинался сразу */
-.trainer-body main {
-    padding-top: 20px;
-}
-
-/* НОВЫЕ СТИЛИ ДЛЯ ИКОНКИ ГЛАЗА */
-
-/* Контейнер для поля ввода и иконки */
+/* Новый раздел с иконкой глаза */
 .password-input-container {
     position: relative;
     width: 100%;
 }
 
-/* Стилизация самого поля ввода внутри контейнера */
-/* Переопределяем ширину и добавляем padding-right из ваших старых правил */
 .password-input-area input {
     width: 100%;
-    max-width: 100%; /* Убрал фиксированный max-width, чтобы поле растягивалось на 100% контейнера */
+    max-width: 100%;
     padding: 12px;
-    padding-right: 40px; /* Делаем отступ справа, чтобы текст не наползал на иконку */
+    padding-right: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
@@ -197,17 +214,14 @@ footer {
     background-color: #e0e0e0;
     color: #1a1a2e;
     font-size: 1em;
-    box-sizing: border-box; /* Важно, чтобы padding не увеличивал общую ширину */
+    box-sizing: border-box;
 }
 
-/* Позиционирование иконки "глаза" */
 #togglePassword {
     position: absolute;
-    right: 10px; /* Отступ справа */
-    top: 50%; /* Смещаем вниз на половину высоты */
-    transform: translateY(-50%); /* Центрируем вертикально точно по середине */
-    cursor: pointer; /* Делаем курсор в виде руки при наведении */
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
     color: #aaa;
 }
-
-

@@ -1,42 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Удаляем или комментируем код, который искал кнопку StartButton,
-    // так как в trainer.html ее нет, а тренажер виден сразу.
+    // ... (остальной код остается без изменений)
 
     const passwordInput = document.getElementById('passwordInput');
     const strengthIndicator = document.getElementById('strengthIndicator');
     const strengthText = document.getElementById('strengthText');
-    // НОВЫЙ ЭЛЕМЕНТ: Иконка глаза
     const togglePassword = document.getElementById('togglePassword');
 
-    // Проверяем, существуют ли нужные элементы на текущей странице, прежде чем добавлять слушатель событий
-    // Теперь проверяем и наличие иконки togglePassword
     if (passwordInput && strengthIndicator && strengthText && togglePassword) {
-        // Обработка ввода пароля в реальном времени
         passwordInput.addEventListener('input', () => {
             const password = passwordInput.value;
             const strength = checkPasswordStrength(password);
             updateStrengthIndicator(strength);
         });
 
-        // НОВЫЙ КОД: Обработка клика по иконке глаза для показа/скрытия пароля
         togglePassword.addEventListener('click', function () {
-            // Переключаем тип атрибута: если 'password', делаем 'text', иначе 'password'
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-
-            // Переключаем класс иконки Font Awesome (открытый/закрытый глаз)
             this.classList.toggle('fa-eye');
             this.classList.toggle('fa-eye-slash');
         });
 
     } else {
-        // Если это главная страница index.html, где тренажер сначала скрыт,
-        // этот блок кода не будет выполняться, так как мы используем ссылку.
         console.log("Password trainer elements not found. This might be the main index page.");
     }
 
 
-    // Функция оценки надежности пароля (остается без изменений)
+    // Функция оценки надежности пароля (ОБНОВЛЕННАЯ ВЕРСИЯ)
     function checkPasswordStrength(password) {
         let score = 0;
         if (!password) return 0;
@@ -45,35 +34,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasLowerCase = /[a-z]/.test(password);
         const hasDigit = /\d/.test(password);
         const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
-        const isLong = password.length >= 12;
+        // Убрали isLong как отдельный булевый флаг, теперь длина дает баллы динамически
 
-        if (hasUpperCase) score++;
-        if (hasLowerCase) score++;
-        if (hasDigit) score++;
-        if (hasSpecialChar) score++;
-        if (isLong) score++;
+        // Баллы за наличие разных типов символов
+        if (hasUpperCase) score += 1; // Увеличили вес до 1 балла
+        if (hasLowerCase) score += 1;
+        if (hasDigit) score += 1;
+        if (hasSpecialChar) score += 1;
+        
+        // Ужесточаем требования к длине:
+        if (password.length >= 10) score += 0.5; // Балл за 10+ символов (было 8+)
+        if (password.length >= 14) score += 1;   // Дополнительный балл за 14+ символов (было 16+)
+        if (password.length >= 18) score += 0.5; // Еще балл за очень длинный пароль
 
-        if (password.length >= 8) score += 0.5;
-        if (password.length >= 16) score += 0.5;
+        // Максимальный балл теперь может достигать 5 (1+1+1+1 + 0.5+1+0.5)
 
         return score;
     }
 
-    // Функция обновления интерфейса (остается без изменений)
+    // Функция обновления интерфейса (ТРЕБУЕТСЯ НЕБОЛЬШАЯ КОРРЕКТИРОВКА ПОРОГОВ)
     function updateStrengthIndicator(strength) {
+        // Шкала осталась прежней (от 0 до 5), но теперь ее сложнее заполнить.
         let width = (strength / 5) * 100;
         let color = '#ff0000';
         let text = 'Очень слабый';
 
-        if (strength >= 1.5) {
+        // Корректируем пороги, чтобы они соответствовали новому распределению баллов
+        if (strength >= 2) { // Раньше было 1.5
             color = '#ff9800';
             text = 'Средний';
         }
-        if (strength >= 3) {
+        if (strength >= 3.5) { // Раньше было 3
             color = '#4caf50';
             text = 'Надежный';
         }
-        if (strength >= 4.5) {
+        if (strength >= 4.5) { // Раньше было 4.5
             color = '#8bc34a';
             text = 'Очень надежный';
         }

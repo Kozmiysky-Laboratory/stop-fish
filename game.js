@@ -296,6 +296,9 @@ function handleChoice(isPhishingGuess) {
 
 // Завершаем игру и показываем результаты
 function endGame() {
+    document.getElementById('eventLog').innerHTML = '';
+
+    
     document.querySelector('.email-viewer').style.display = 'none';
     document.getElementById('gameResults').style.display = 'flex';
     document.getElementById('resultTitle').textContent = "Симуляция завершена!";

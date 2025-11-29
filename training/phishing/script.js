@@ -695,16 +695,22 @@ function logEvent(message) {
 
 // Начало игры
 function startGame() {
-    document.getElementById('menuScreen').style.display = 'none';   // Скрываем меню
-    document.getElementById('gameScreen').style.display = 'flex';  // Показываем экран игры
-    document.getElementById('gameResults').style.display = 'none'; // Скрываем результаты
-    document.querySelector('.email-viewer').style.display = 'block'; // <<< Добавлено: Показываем просмотрщик почты
+    document.getElementById('menuScreen').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'flex';
+    document.getElementById('gameResults').style.display = 'none';
+    
+    // !!! ДОБАВЬТЕ ЭТОТ БЛОК В НАЧАЛО ИГРЫ, ЧТОБЫ СНЯТЬ DISABLED С КНОПОК ОТ ПРОШЛОЙ ИГРЫ !!!
+    const emailActions = document.querySelector('.email-actions');
+    if (emailActions) {
+        Array.from(emailActions.children).forEach(button => button.disabled = false);
+    }
+    // ----------------------------------------------------------------------------------
+    
     currentGameStage = 1;
     correctAnswersCount = 0;
     logEvent("Игра началась. Первый уровень загружается.");
 
-    // Выбираем случайные сценарии для текущего раунда
-    selectedScenarios = selectRandomScenarios(10); // Меняем число раундов тут
+    selectedScenarios = selectRandomScenarios(10);
     loadStage(currentGameStage);
 }
 
@@ -716,6 +722,13 @@ function loadStage(stageNumber) {
     }
 
     const currentScenario = selectedScenarios[stageNumber - 1];
+    
+    // !!! Также убедитесь, что при загрузке нового этапа они тоже включены !!!
+    const emailActions = document.querySelector('.email-actions');
+    if (emailActions) {
+        Array.from(emailActions.children).forEach(button => button.disabled = false);
+    }
+    // -----------------------------------------------------------------------
 
     document.getElementById('stageCounter').textContent = `Этап #${stageNumber}. Ваш ход`;
     document.getElementById('correctAnswers').textContent = correctAnswersCount;

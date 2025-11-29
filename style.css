@@ -219,7 +219,7 @@ h2 {
 .course-card[data-color="yellow"] { background-color: var(--card-yellow); color: var(--bg-dark); }
 .course-card[data-color="yellow"] p { color: var(--bg-dark); opacity: 0.8; }
 
-.course-card[data-color="indigo"] { background-color: var(--card-blue); color: var(--bg-dark); }
+.course-card[data-color="indigo"] { background-color: var(--card-indigo); color: var(--bg-dark); }
 .course-card[data-color="indigo"] p { color: var(--bg-dark); opacity: 0.8; }
 
 .course-card[data-color="brown"] { background-color: var(--card-brown); color: var(--bg-dark); }

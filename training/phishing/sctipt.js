@@ -743,15 +743,13 @@ function handleChoice(isPhishingGuess) {
         currentGameStage++;
         if (currentGameStage <= selectedScenarios.length) {
             loadStage(currentGameStage);
-            // Разблокируем кнопки
             Array.from(emailActions.children).forEach(button => button.disabled = false);
         } else {
             endGame();
         }
-    }, 2500); // Задержка в 2.5 сек для чтения пояснения
+    }, 500);
 }
 
-// Завершаем игру и показываем результаты
 function endGame() {
      document.getElementById('eventLog').innerHTML = '';
 

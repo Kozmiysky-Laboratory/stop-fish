@@ -17,8 +17,8 @@ body {
     width: 80%;
     max-width: 600px;
     padding: 20px;
-    border: 1px solid #00ffcc; /* Бирюзовый акцент */
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.4); /* Бирюзовое свечение */
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
     background-color: rgba(10, 10, 26, 0.9);
     text-align: center;
     border-radius: 5px;
@@ -32,7 +32,7 @@ header {
 }
 
 .stage-info {
-    color: #00ffcc; /* Бирюзовый */
+    color: #00ffcc;
     font-weight: bold;
 }
 
@@ -42,7 +42,7 @@ header {
 }
 
 h1 {
-    color: #00ffcc; /* Бирюзовый */
+    color: #00ffcc;
     text-transform: uppercase;
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -61,8 +61,8 @@ p {
 }
 
 button#startButton {
-    background-color: #00ffcc; /* Бирюзовый фон кнопки */
-    color: #0a0a1a; /* Темный текст на кнопке */
+    background-color: #00ffcc;
+    color: #0a0a1a;
     border: none;
     padding: 10px 20px;
     font-family: inherit;
@@ -84,7 +84,6 @@ footer {
     opacity: 0.6;
 }
 
-/* Стили для опций Этапа 1 (защитные иконки) */
 .stage-options {
     display: flex;
     flex-direction: column;
@@ -113,27 +112,21 @@ footer {
     color: #00ffcc;
 }
 
-/* ... (Все предыдущие стили остаются без изменений) ... */
-
-/* Новый стиль для блока сводки угрозы */
 .threat-summary {
-    background-color: rgba(255, 0, 85, 0.1); /* Легкий красный фон, чтобы обозначить опасность */
+    background-color: rgba(255, 0, 85, 0.1);
     border: 1px solid #ff0055;
     padding: 15px;
     margin-bottom: 20px;
     font-size: 0.9em;
-    color: #ff0055; /* Красный текст */
+    color: #ff0055;
     text-align: left;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
 }
 
-/* ... (Стили для .option, .option:hover и т.д. остаются прежними, используя бирюзовый цвет) ... */
-
-/* Добавьте этот стиль в ваш style.css */
 button.final-restart-button {
-    background-color: #00ffcc; /* Бирюзовый фон кнопки */
-    color: #0a0a1a; /* Темный текст на кнопке */
+    background-color: #00ffcc;
+    color: #0a0a1a;
     border: none;
     padding: 10px 20px;
     font-family: inherit;
@@ -143,7 +136,7 @@ button.final-restart-button {
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
     transition: background-color 0.3s;
     font-weight: bold;
-    border-radius: 3px; /* Добавим немного скругления */
+    border-radius: 3px;
 }
 
 button.final-restart-button:hover {

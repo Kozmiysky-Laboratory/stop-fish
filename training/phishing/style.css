@@ -1,0 +1,281 @@
+body {
+    background-color: #0d111c;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+
+/* Эффект фоновой сетки (имитация кибер-пространства) */
+.background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 1px 1px, #1a2a4a 1px, transparent 0),
+        linear-gradient(to right, rgba(255, 0, 0, 0.1) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255, 0, 0, 0.1) 1px, transparent 0);
+    background-size: 40px 40px, 40px 40px, 40px 40px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.menu-container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.hacker-icon {
+    font-size: 80px;
+    color: #ff0055; /* Ярко-красный/розовый акцент */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.7);
+}
+
+.dialog-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+.dialog-box h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #ff0055;
+}
+
+.dialog-box p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #cccccc;
+}
+
+.start-button {
+    margin-top: 40px;
+    padding: 15px 50px;
+    background-color: transparent;
+    color: #ff0055;
+    border: 2px solid #ff0055;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+    clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+}
+
+.start-button:hover {
+    background-color: #ff0055;
+    color: #0d111c;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+}
+
+
+/* --- Стили Экрана Игры --- */
+
+.game-screen-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ff0055;
+}
+
+.attack-title {
+    color: #ff0055;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.stage-title {
+    font-size: 18px;
+    color: #cccccc;
+}
+
+.timer-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 0, 85, 0.2);
+    border: 1px solid #ff0055;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.timer-box .fa-clock {
+    margin-right: 10px;
+    color: #ff0055;
+}
+
+.timer-value {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.game-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+}
+
+.info-sidebar {
+    width: 20%;
+    font-size: 14px;
+    border-left: 2px solid rgba(255, 0, 85, 0.5);
+    padding-left: 10px;
+    color: #aaa;
+}
+
+.target-server {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #00ffff;
+}
+
+.attack-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 60%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.attack-item {
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
+}
+
+.attack-icon {
+    font-size: 50px;
+    color: #ff0055;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 20px;
+    border: 1px solid #ff0055;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.attack-item:hover .attack-icon {
+    transform: scale(1.1);
+}
+
+
+/* Дополнительные стили для экрана игры и почтового ящика */
+
+.game-content {
+    align-items: stretch;
+}
+
+.email-viewer {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #00ffff;
+    padding: 20px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.email-header {
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.email-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Стили для ссылок внутри письма, имитируем реальные ссылки */
+.email-body a {
+    color: #ff0055;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.email-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+    width: 45%;
+}
+
+.action-button.safe {
+    background-color: #008000;
+    color: white;
+}
+
+.action-button.safe:hover {
+    background-color: #005f00;
+}
+
+.action-button.phishing {
+    background-color: #ff0000;
+    color: white;
+}
+
+.action-button.phishing:hover {
+    background-color: #cc0000;
+}
+
+.info-sidebar p {
+    margin: 5px 0;
+    color: #00ff00;
+}
+
+.game-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+

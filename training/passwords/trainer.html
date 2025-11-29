@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер Паролей</title>
-    <link rel="stylesheet" href="pass_style.css">
-    <!-- Добавляем Font Awesome для иконки глаза -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cdnjs.cloudflare.com">
     <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body class="trainer-body">
     <main>
-        <!-- Этот раздел был скопирован из предыдущего index.html -->
         <section id="trainingSection" class="training-section">
             <div class="container">
-                <!-- Кнопка "Назад" для возврата на главную страницу -->
-                <a href="index.html" class="back-link">← Вернуться на главню</a>
+                <a href="/index.html" class="back-link">← Вернуться на главную</a>
                 <h3>Тренажер: Составление пароля</h3>
                 <div class="tips-container">
                     <h4>Советы по составлению пароля:</h4>
@@ -29,10 +26,8 @@
                 <div class="password-input-area">
                     <label for="passwordInput">Введите ваш пароль:</label>
                     
-                    <!-- НОВЫЙ КОНТЕЙНЕР ДЛЯ ПОЛЯ И ИКОНКИ -->
                     <div class="input-container">
                         <input " id="passwordInput" placeholder="Введите пароль здесь">
-                        <!-- Иконка глаза. Класс fa-eye-slash означает "закрытый глаз" по умолчанию -->
                         <i class="far fa-eye-slash" id="togglePassword"></i>
                     </div>
 
@@ -51,6 +46,6 @@
         </div>
     </footer>
 
-    <script src="pass_script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

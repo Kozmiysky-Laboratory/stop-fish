@@ -9,7 +9,7 @@ const gameResults = [];
 let activeScenario;
 
 const scenarios = [
-    // SCENARIO 1: Брутфорс и вымогатель (Ваш оригинал)
+    // SCENARIO 1: Брутфорс и вымогатель
     {
         name: "Брутфорс и вымогатель",
         correctActions: { 1: 'isolate', 2: 'block-ip', 3: 'edr-deploy', 4: 'full-isolate', 5: 'forensics', 6: 'system-rebuild', 7: 'waf-deploy', 8: 'threat-hunting', 9: 'dr-test', 10: 'regulator-notify', 11: 'roadmap-plan', 12: 'final-score' },

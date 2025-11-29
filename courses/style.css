@@ -8,8 +8,8 @@
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #1a1a2e; /* Основной темный фон */
-    color: #e0e0e0; /* Светлый цвет текста по умолчанию */
+    background-color: #1a1a2e;
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
@@ -19,7 +19,6 @@ body {
     min-height: 100vh;
 }
 
-/* Top Navigation Bar */
 .navbar {
     background-color: #1a1a2e;
     color: white;
@@ -44,11 +43,11 @@ body {
 }
 
 .navbar a:hover {
-    color: #00bcd4; /* Яркий акцент */
+    color: #00bcd4;
 }
 
 .btn-primary {
-    background-color: #ff9800; /* Яркий оранжевый */
+    background-color: #ff9800;
     color: #1a1a2e;
     padding: 8px 16px;
     border-radius: 5px;
@@ -60,21 +59,17 @@ body {
     background-color: #e68900;
 }
 
-/* Main Layout (Теперь только контент) */
 .main-layout {
     display: flex;
     flex: 1;
 }
 
-/* Sidebar - УДАЛЕН */
 
-
-/* Main Content Area теперь занимает всю ширину */
 .content-area {
     flex: 1;
     padding: 40px;
-    max-width: 1200px; /* Ограничим ширину контента для лучшего чтения */
-    margin: 0 auto; /* Центрируем контент */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .content-area h1 {
@@ -82,14 +77,12 @@ body {
     margin-bottom: 25px;
 }
 
-/* Course Grid */
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Course Card */
 .card {
     background-color: #2a2a3e;
     border-radius: 8px;
@@ -133,7 +126,6 @@ body {
     color: #ff9800;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .navbar {
         padding: 10px 20px;

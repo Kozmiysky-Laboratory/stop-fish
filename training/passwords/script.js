@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (остальной код остается без изменений)
 
     const passwordInput = document.getElementById('passwordInput');
     const strengthIndicator = document.getElementById('strengthIndicator');
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Функция оценки надежности пароля (СБАЛАНСИРОВАННАЯ ВЕРСИЯ)
     function checkPasswordStrength(password) {
         let score = 0;
         if (!password) return 0;
@@ -35,39 +33,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasDigit = /\d/.test(password);
         const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
 
-        // Даем баллы за каждый тип символа (по 1 баллу)
         if (hasUpperCase) score += 1;
         if (hasLowerCase) score += 1;
         if (hasDigit) score += 1;
         if (hasSpecialChar) score += 1;
         
-        // Умеренно ужесточаем требования к длине:
-        if (password.length >= 10) score += 0.5; // +0.5 балла за 10+ символов
-        if (password.length >= 14) score += 0.5; // +0.5 балла за 14+ символов
-        if (password.length >= 18) score += 0;   // Убрал балл за 18+, чтобы макс. балл был 5
-
-        // Максимальный балл теперь ровно 5 (1+1+1+1 + 0.5 + 0.5)
+        if (password.length >= 10) score += 0.5;
+        if (password.length >= 14) score += 0.5;
+        if (password.length >= 18) score += 0;
 
         return score;
     }
 
-    // Функция обновления интерфейса (СКОРРЕКТИРОВАНЫ ПОРОГИ)
     function updateStrengthIndicator(strength) {
-        // Шкала от 0 до 5
         let width = (strength / 5) * 100;
         let color = '#ff0000';
         let text = 'Очень слабый';
 
-        // Пороги:
-        if (strength >= 2) { // Два типа символов ИЛИ один тип и длина 10+
+        if (strength >= 2) {
             color = '#ff9800';
             text = 'Средний';
         }
-        if (strength >= 3.5) { // Три типа символов И длина 10+, или 4 типа без длины
+        if (strength >= 3.5) {
             color = '#4caf50';
             text = 'Надежный';
         }
-        if (strength >= 4.5) { // Все 4 типа символов И длина 14+
+        if (strength >= 4.5) {
             color = '#8bc34a';
             text = 'Очень надежный';
         }

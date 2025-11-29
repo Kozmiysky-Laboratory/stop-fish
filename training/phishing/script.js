@@ -695,22 +695,16 @@ function logEvent(message) {
 
 // Начало игры
 function startGame() {
-    document.getElementById('menuScreen').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'flex';
-    document.getElementById('gameResults').style.display = 'none';
-    
-    // !!! ДОБАВЬТЕ ЭТОТ БЛОК В НАЧАЛО ИГРЫ, ЧТОБЫ СНЯТЬ DISABLED С КНОПОК ОТ ПРОШЛОЙ ИГРЫ !!!
-    const emailActions = document.querySelector('.email-actions');
-    if (emailActions) {
-        Array.from(emailActions.children).forEach(button => button.disabled = false);
-    }
-    // ----------------------------------------------------------------------------------
-    
+    document.getElementById('menuScreen').style.display = 'none';   // Скрываем меню
+    document.getElementById('gameScreen').style.display = 'flex';  // Показываем экран игры
+    document.getElementById('gameResults').style.display = 'none'; // Скрываем результаты
+    document.querySelector('.email-viewer').style.display = 'block'; // <<< Добавлено: Показываем просмотрщик почты
     currentGameStage = 1;
     correctAnswersCount = 0;
     logEvent("Игра началась. Первый уровень загружается.");
 
-    selectedScenarios = selectRandomScenarios(10);
+    // Выбираем случайные сценарии для текущего раунда
+    selectedScenarios = selectRandomScenarios(10); // Меняем число раундов тут
     loadStage(currentGameStage);
 }
 
@@ -788,7 +782,6 @@ function endGame() {
     document.getElementById('resultMessage').textContent = resultMessage;
     logEvent("Игра окончена.");
 }
-
 // Повторный старт игры
 function resetGame() {
     logEvent("Игра перезапущена.");

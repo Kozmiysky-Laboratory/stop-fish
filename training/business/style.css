@@ -1,144 +1,174 @@
 body {
-    background-color: #0a0a1a;
-    color: #eee;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: #1e1e1e; /* Темный фон */
+    color: #d4d4d4; /* Светлый текст */
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
-.hidden {
-    display: none !important;
-}
-
-.game-container {
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    border: 1px solid #00ffcc;
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
-    background-color: rgba(10, 10, 26, 0.9);
-    text-align: center;
+.log-container {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #0b0d11; /* Еще более темный фон для контейнера логов */
+    border: 1px solid #333;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.stage-info {
-    color: #00ffcc;
-    font-weight: bold;
-}
-
-.timer {
-    color: #00ffcc;
-    font-size: 1.2em;
-}
-
 h1 {
-    color: #00ffcc;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-p {
-    margin: 10px 0;
-}
-
-.intro-text {
-    margin: 20px 0;
-    line-height: 1.4;
-    border-top: 1px dashed #00ffcc;
-    border-bottom: 1px dashed #00ffcc;
-    padding: 15px 0;
-}
-
-button#startButton {
-    background-color: #00ffcc;
-    color: #0a0a1a;
-    border: none;
-    padding: 10px 20px;
-    font-family: inherit;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
-    transition: background-color 0.3s;
-    font-weight: bold;
-}
-
-button#startButton:hover {
-    background-color: #33ffff;
-}
-
-footer {
-    margin-top: 20px;
-    font-size: 0.8em;
-    opacity: 0.6;
-}
-
-.stage-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.option {
-    background-color: rgba(0, 255, 204, 0.05);
-    padding: 15px;
-    border: 1px solid #00ffcc;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.option:hover {
-    background-color: rgba(0, 255, 204, 0.2);
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
-}
-
-.option i {
-    margin-right: 10px;
-    font-size: 1.5em;
-    color: #00ffcc;
-}
-
-.threat-summary {
-    background-color: rgba(255, 0, 85, 0.1);
-    border: 1px solid #ff0055;
-    padding: 15px;
+    color: #4CAF50; /* Зеленый заголовок */
+    text-align: center;
     margin-bottom: 20px;
-    font-size: 0.9em;
-    color: #ff0055;
+}
+
+#logTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#logTable thead th {
+    background-color: #252526;
+    color: #f7f7f7;
+    padding: 10px;
     text-align: left;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+    border-bottom: 2px solid #4CAF50;
+    text-transform: uppercase;
 }
 
-button.final-restart-button {
-    background-color: #00ffcc;
-    color: #0a0a1a;
-    border: none;
-    padding: 10px 20px;
-    font-family: inherit;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
-    transition: background-color 0.3s;
+#logTable tbody tr {
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s;
+}
+
+#logTable tbody tr:hover {
+    background-color: #1a1a1a;
+}
+
+#logTable tbody td {
+    padding: 8px 10px;
+    white-space: nowrap; /* Предотвращаем перенос строк */
+}
+
+/* Стилизация ячеек STATUS */
+.status-cell {
     font-weight: bold;
+    text-align: center;
+    padding: 2px 5px;
     border-radius: 3px;
+    display: inline-block; /* Для лучшего вида кнопки */
+    min-width: 80px;
 }
 
-button.final-restart-button:hover {
-    background-color: #33ffff;
+.status-200 {
+    background-color: #388e3c; /* Green */
+    color: white;
+}
+
+.status-302 {
+    background-color: #fbc02d; /* Yellow/Orange */
+    color: #333;
+}
+
+.status-401 {
+    background-color: #d32f2f; /* Red */
+    color: white;
+}
+
+.status-404 {
+    background-color: #7b1fa2; /* Purple */
+    color: white;
+}
+
+.method-get {
+    color: #64b5f6; /* Light Blue */
+    font-weight: bold;
+}
+
+.method-post {
+    color: #ff8a65; /* Light Orange */
+    font-weight: bold;
+}
+
+.game-controls {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-top: 1px dashed #4CAF50;
+    text-align: center;
+}
+
+.game-controls button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.game-controls button:hover {
+    background-color: #45a049;
+}
+
+.suspicious {
+    /* Стиль для выделения подозрительных строк в игре */
+    background-color: rgba(255, 0, 0, 0.2); /* Легкий красный оттенок */
+}
+
+.selected {
+    /* Стиль для строки, выбранной игроком */
+    background-color: #3f51b5 !important; /* Синий цвет */
+    color: white;
+    cursor: pointer;
+}
+
+.suspicious-correct {
+    /* Строка, которая была правильно выбрана */
+    background-color: #4CAF50 !important; /* Зеленый */
+}
+
+.suspicious-missed {
+    /* Строка, которую нужно было выбрать, но пропустили */
+    background-color: #ff9800 !important; /* Оранжевый */
+}
+
+.suspicious-false {
+    /* Строка, которую выбрали ошибочно */
+    background-color: #f44336 !important; /* Красный */
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.feedback.success {
+    background-color: #388e3c;
+    color: white;
+}
+
+.feedback.error {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.game-controls button {
+    /* Убедимся, что кнопка проверки ответа выглядит хорошо */
+    margin-top: 10px;
+    padding: 12px 25px;
+    background-color: #3f51b5; /* Синий */
+}
+
+.game-controls button:hover {
+    background-color: #303f9f;
 }

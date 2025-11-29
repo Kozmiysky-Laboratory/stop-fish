@@ -3,53 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Макет страницы курсов (Без сайдбара)</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Stop Fish — Каталог курсов</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet"> 
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Top Navigation Bar -->
-        <header class="navbar">
-            <div class="logo">Stop Fish</div>
-            <nav>
-                <a href="../index.html">Главная</a>
-                <a href="courses.html">Курсы</a>
-                <a href="#">О проекте</a>
-                <a href="#" class="btn-primary">Начать обучение</a>
-            </nav>
-        </header>
 
-        <!-- Main Layout (Content Only, no Sidebar) -->
-        <div class="main-layout">
-            <!-- Main Content Area takes full width -->
-            <main class="content-area">
-                <h1>Каталог курсов</h1>
-                
-                <div class="course-grid">
-                    <!-- Пример карточки курса (повторить 8 раз) -->
-                    <div class="card">
-                        <div class="card-image-placeholder">
-                            <span>C#</span>
-                        </div>
-                        <div class="card-content">
-                            <h3>Безопасность публичного Wi-Fi:</h3>
-                            <p>Риски использования общедоступных сетей</p>
-                            <div class="card-footer">
-                                <span>Прогресс: 24%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Повторите этот блок .card еще 7 раз для заполнения сетки -->
-                    <div class="card"><div class="card-image-placeholder"><span>Python</span></div><div class="card-content"><h3>Название курса 2</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>JS</span></div><div class="card-content"><h3>Название курса 3</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>SQL</span></div><div class="card-content"><h3>Название курса 4</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>React</span></div><div class="card-content"><h3>Название курса 5</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>Vue</span></div><div class="card-content"><h3>Название курса 6</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>HTML</span></div><div class="card-content"><h3>Название курса 7</h3><p>Описание курса.</p></div></div>
-                    <div class="card"><div class="card-image-placeholder"><span>CSS</span></div><div class="card-content"><h3>Название курса 8</h3><p>Описание курса.</p></div></div>
-                </div>
-            </main>
+    <header>
+        <div class="branding">
+            <span class="site-name">Stop Fish</span>
         </div>
-    </div>
+        <nav>
+            <a href="../index.html">Главная</a>
+            <a href="courses.html" class="active">Курсы</a>
+            <a href="../index.html#about">О проекте</a>
+            <a href="#" class="cta-button">Начать обучение</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Каталог курсов</h1>
+        
+        <div class="course-grid">
+            
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Wi-Fi</span>
+                </div>
+                <div class="card-content">
+                    <h3>Безопасность Wi-Fi</h3>
+                    <p>Риски использования общедоступных сетей и методы защиты.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 24%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Phish</span>
+                </div>
+                <div class="card-content">
+                    <h3>Основы анти-фишинга</h3>
+                    <p>Как распознать поддельные письма и сайты за 5 секунд.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Pass</span>
+                </div>
+                <div class="card-content">
+                    <h3>Гигиена паролей</h3>
+                    <p>Создание, хранение и управление сложными паролями.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 10%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Kids</span>
+                </div>
+                <div class="card-content">
+                    <h3>Дети в интернете</h3>
+                    <p>Родительский контроль и беседы о безопасности.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Bank</span>
+                </div>
+                <div class="card-content">
+                    <h3>Банковские карты</h3>
+                    <p>Как не потерять деньги при онлайн-оплате.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 55%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image-placeholder">
+                    <span>Soc</span>
+                </div>
+                <div class="card-content">
+                    <h3>Социальная инженерия</h3>
+                    <p>Психологические уловки мошенников.</p>
+                    <div class="card-footer">
+                        <span>Прогресс: 0%</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <small>© Stop Fish | Ваш проводник в мире цифровой безопасности</small>
+    </footer>
+
 </body>
 </html>

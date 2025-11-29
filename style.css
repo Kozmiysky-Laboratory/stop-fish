@@ -8,6 +8,10 @@
     --card-orange-soft: #ffa500;
     --card-blue: #00bfff;
     --card-purple: #9370db;
+    --card-green: #008000;
+    --card-yellow: #af9816;
+    --card-indigo: #560591;
+    --card-brown: #964B00;
 }
 
 * { 
@@ -209,6 +213,17 @@ h2 {
 .course-card[data-color="purple"] { background-color: var(--card-purple); color: var(--bg-dark); }
 .course-card[data-color="purple"] p { color: var(--bg-dark); opacity: 0.8; }
 
+.course-card[data-color="green"] { background-color: var(--card-green); color: var(--bg-dark); }
+.course-card[data-color="green"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="yellow"] { background-color: var(--card-yellow); color: var(--bg-dark); }
+.course-card[data-color="yellow"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="indigo"] { background-color: var(--card-blue); color: var(--bg-dark); }
+.course-card[data-color="indigo"] p { color: var(--bg-dark); opacity: 0.8; }
+
+.course-card[data-color="brown"] { background-color: var(--card-brown); color: var(--bg-dark); }
+.course-card[data-color="brown"] p { color: var(--bg-dark); opacity: 0.8; }
 
 footer { 
     margin-top: 50px; 

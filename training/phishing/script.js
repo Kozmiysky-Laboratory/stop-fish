@@ -698,6 +698,7 @@ function startGame() {
     document.getElementById('menuScreen').style.display = 'none';   // Скрываем меню
     document.getElementById('gameScreen').style.display = 'flex';  // Показываем экран игры
     document.getElementById('gameResults').style.display = 'none'; // Скрываем результаты
+    document.querySelector('.email-viewer').style.display = 'block'; // <<< Добавлено: Показываем просмотрщик почты
     currentGameStage = 1;
     correctAnswersCount = 0;
     logEvent("Игра началась. Первый уровень загружается.");
@@ -715,6 +716,13 @@ function loadStage(stageNumber) {
     }
 
     const currentScenario = selectedScenarios[stageNumber - 1];
+    
+    // !!! Также убедитесь, что при загрузке нового этапа они тоже включены !!!
+    const emailActions = document.querySelector('.email-actions');
+    if (emailActions) {
+        Array.from(emailActions.children).forEach(button => button.disabled = false);
+    }
+    // -----------------------------------------------------------------------
 
     document.getElementById('stageCounter').textContent = `Этап #${stageNumber}. Ваш ход`;
     document.getElementById('correctAnswers').textContent = correctAnswersCount;
@@ -753,12 +761,12 @@ function handleChoice(isPhishingGuess) {
 function endGame() {
      document.getElementById('eventLog').innerHTML = '';
 
-
-
+    // Скрываем email-viewer, когда игра заканчивается
     document.querySelector('.email-viewer').style.display = 'none';
-    document.getElementById('gameResults').style.display = 'flex';
-    document.getElementById('resultTitle').textContent = "Симуляция завершена!";
 
+    document.getElementById('gameResults').style.display = 'flex';
+    // ... остальная часть функции endGame ...
+    document.getElementById('resultTitle').textContent = "Симуляция завершена!";
     let resultMessage = `Вы завершили все этапы. Ваш итоговый результат: ${correctAnswersCount} из ${selectedScenarios.length} правильных ответов.`;
     if (correctAnswersCount === selectedScenarios.length) {
         resultMessage += " Отличная работа! Вы эксперт по кибербезопасности.";
@@ -774,10 +782,8 @@ function endGame() {
     document.getElementById('resultMessage').textContent = resultMessage;
     logEvent("Игра окончена.");
 }
-
 // Повторный старт игры
 function resetGame() {
-    document.querySelector('.email-viewer').style.display = 'block';
     logEvent("Игра перезапущена.");
     startGame();
 }

@@ -96,9 +96,6 @@
         document.querySelectorAll('.course-card').forEach(card => {
             card.addEventListener('click', () => {
                 let targetPage = card.dataset.link;
-                if (!targetPage || !targetPage.includes(".html")) {
-                    return alert("Данный раздел находится в разработке.");
-                }
                 location.href = targetPage;
             });
         });

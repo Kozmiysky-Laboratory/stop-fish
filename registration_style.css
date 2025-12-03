@@ -1,0 +1,187 @@
+/* === style.css === */
+
+/* Переменные цвета */
+:root {
+    --bg-dark: #1e1e2d;
+    --bg-card: #2c2c3e;
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent-orange: #ff9841;
+}
+
+/* Базовые настройки для всей страницы */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    /* Добавлен красивый градиентный фон */
+    background: linear-gradient(135deg, var(--bg-dark), #12121e);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Настройки шапки (header) */
+header {
+    background-color: rgba(44, 44, 62, 0.9); /* Полупрозрачный фон для эффекта */
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Эффект размытия для шапки */
+}
+
+.branding { display: flex; align-items: center; }
+.site-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+nav { display: flex; gap: 25px; align-items: center; }
+nav a {
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+nav a:hover, nav a.active { color: var(--text-light); }
+
+/* Основной контент страницы */
+main {
+    width: 100%;
+    max-width: 1280px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+/* --- ДОБАВЛЕННЫЙ КОД ДЛЯ ОТСТУПА И ФОРМЫ РЕГИСТРАЦИИ --- */
+
+label {
+    display: block; /* Делает label блочным элементом, чтобы margin-bottom работал */
+    margin-bottom: 8px; /* Добавляет отступ вниз от текста */
+}
+
+.registration-form-container {
+    max-width: 450px;
+    width: 100%;
+    padding: 40px;
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Добавим небольшую анимацию появления */
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Анимация плавного появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.registration-form-container h2 {
+    margin-bottom: 25px;
+    color: var(--text-light);
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(255, 152, 65, 0.2);
+}
+
+/* --- КОНЕЦ ДОБАВЛЕННОГО КОДА --- */
+
+
+/* Общие стили для полей ввода */
+input,
+input[type="email"],
+input[type="password"],
+input[type="text"] { /* Добавлен input type="text" */
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-dark);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 2px rgba(255, 152, 65, 0.5); /* Более выраженная тень фокуса */
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Общие стили для кнопок */
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--accent-orange);
+    color: var(--bg-dark);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #ffb56b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 152, 65, 0.4); /* Тень для кнопки */
+}
+
+/* Подвал (footer) */
+footer {
+    padding: 30px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid #333;
+    background-color: var(--bg-card);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+}

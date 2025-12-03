@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в аккаунт Stop Fish</title>
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    
+    <!-- Общие стили -->
+    <link rel="stylesheet" href="registration_style.css">
+    <!-- Стили только для страницы входа -->
+    <link rel="stylesheet" href="login_style.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="branding">
+            <span class="site-name">Stop Fish</span>
+        </div>
+        <nav>
+            <a href="/index.html">Главная</a>
+            <a href="/courses/courses.html">Курсы</a>
+            <a href="#about">О проекте</a>
+        </nav>
+    </header>
+
+    <!-- Login Form -->
+    <main>
+        <section class="login-form-container">
+            <form action="#" method="POST" id="loginForm">
+                <h2>Вход</h2>
+
+                <label for="email">Email адрес:</label>
+                <input type="email" id="email" required placeholder="example@example.ru">
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Введите ваш пароль">
+
+                <button type="submit" class="main-cta-button">Войти</button>
+                
+                <p class="form-footer-text">
+                    Еще нет аккаунта? <a href="/registration.html">Зарегистрироваться</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <small>© Stop Fish | Ваш проводник в мире цифровой безопасности</small>
+    </footer>
+
+    <script>
+        // Простое подтверждение отправки формы
+        const form = document.getElementById("loginForm");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Вы успешно вошли!");
+        });
+    </script>
+</body>
+</html>

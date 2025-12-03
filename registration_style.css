@@ -73,8 +73,6 @@ main {
     flex: 1;
 }
 
-/* --- ДОБАВЛЕННЫЙ КОД ДЛЯ ОТСТУПА И ФОРМЫ РЕГИСТРАЦИИ --- */
-
 label {
     display: block; /* Делает label блочным элементом, чтобы margin-bottom работал */
     margin-bottom: 8px; /* Добавляет отступ вниз от текста */
@@ -111,14 +109,32 @@ label {
     text-shadow: 0 0 5px rgba(255, 152, 65, 0.2);
 }
 
-/* --- КОНЕЦ ДОБАВЛЕННОГО КОДА --- */
+/* --- ДОБАВЛЕНО: Стили для текста под формой (общие) --- */
+.form-footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-footer-text a {
+    color: var(--accent-orange);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.form-footer-text a:hover {
+    color: #ffb56b;
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 152, 65, 0.5); /* Свечение при наведении */
+}
+/* --- КОНЕЦ ДОБАВЛЕННЫХ СТИЛЕЙ --- */
 
 
 /* Общие стили для полей ввода */
 input,
 input[type="email"],
 input[type="password"],
-input[type="text"] { /* Добавлен input type="text" */
+input[type="text"] {
     display: block;
     width: 100%;
     padding: 12px 15px;

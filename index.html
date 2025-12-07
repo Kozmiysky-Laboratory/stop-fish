@@ -86,6 +86,47 @@
                 <p class="course-description">Защитите ваши деньги и банковские счета от кражи и мошенничества.</p>
             </article>
         </div>
+
+        <!-- Новый блок: Статьи -->
+        <h2>Статьи, которые спасут ваши сбережения</h2>
+
+        <div class="articles-grid">
+            <article class="article-card" data-link="article-link-1.html">
+                <div class="article-image-placeholder">
+                    <!-- Замените 'path/to/image1.jpg' на реальные изображения -->
+                    <img src="via.placeholder.com" alt="Изображение статьи 1">
+                </div>
+                <div class="article-content">
+                    <span class="article-date">01 дек. 2025 г.</span>
+                    <h3 class="article-title">Как распознать фишинговое письмо</h3>
+                    <p class="article-author">Автор: Иван Иванов</p>
+                </div>
+            </article>
+
+            <article class="article-card" data-link="article-link-2.html">
+                <div class="article-image-placeholder">
+                     <!-- Замените 'path/to/image2.jpg' на реальные изображения -->
+                    <img src="via.placeholder.com" alt="Изображение статьи 2">
+                </div>
+                <div class="article-content">
+                     <span class="article-date">28 нояб. 2025 г.</span>
+                    <h3 class="article-title">Защита финансов: новые угрозы</h3>
+                    <p class="article-author">Автор: Петр Петров</p>
+                </div>
+            </article>
+
+            <article class="article-card" data-link="article-link-3.html">
+                <div class="article-image-placeholder">
+                     <!-- Замените 'path/to/image3.jpg' на реальные изображения -->
+                    <img src="via.placeholder.com" alt="Изображение статьи 3">
+                </div>
+                <div class="article-content">
+                     <span class="article-date">15 нояб. 2025 г.</span>
+                    <h3 class="article-title">Безопасность детей в сети</h3>
+                    <p class="article-author">Автор: Команда Stop Fish</p>
+                </div>
+            </article>
+        </div>
     </main>
 
     <footer>
@@ -93,15 +134,24 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.course-card').forEach(card => {
-            card.addEventListener('click', () => {
-                let targetPage = card.dataset.link;
+        // Функция для обработки клика по карточке
+        function handleCardClick(event) {
+            let card = event.currentTarget;
+            let targetPage = card.dataset.link;
+            if (targetPage) {
                 location.href = targetPage;
-            });
+            }
+        }
+
+        // Применяем обработчик ко всем карточкам курсов
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('click', handleCardClick);
+        });
+
+        // Применяем обработчик ко всем карточкам статей
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', handleCardClick);
         });
     </script>
 </body>
 </html>
-
-
-

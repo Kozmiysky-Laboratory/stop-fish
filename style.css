@@ -253,3 +253,71 @@ footer {
     .hero-content p { font-size: 1rem; }
     .main-cta-button { width: 100%; text-align: center; }
 }
+
+
+
+/* --- 10. Стили для статей --- */
+
+.articles-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+}
+
+.article-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden; /* Скругляем углы у изображения тоже */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-orange); /* Добавляем акцентную рамку при наведении */
+}
+
+.article-image-placeholder {
+    width: 100%;
+    height: 180px; /* Фиксированная высота для единообразия */
+    background-color: #252535;
+}
+
+.article-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображения будут обрезаны, но не искажены */
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.article-title {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    /* Ограничение заголовка двумя строками для единообразия */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-author {
+    font-size: 0.9rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
